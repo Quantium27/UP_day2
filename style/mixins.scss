@@ -6,6 +6,10 @@
   @return var(--#{unquote($name)});
 }
 
+@function fadedLight($fade: 0.5) {
+  @return fade-out(white, 1 - $fade);
+}
+
 //Функция для использования цветов из CSS-переменных
 @function c($colorName) {
   @return getVariable(clr-#{$colorName})
