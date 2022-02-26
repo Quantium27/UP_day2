@@ -1,6 +1,24 @@
-p {
-  background-color: blue;
-  color: white;
+* {
+  font-family: "FS Elliot Pro", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+:root {
+  --clr-main: #44aa8f;
+  --clr-bg: #1b1b1b;
+  --clr-text: #fafafa;
+}
+
+html, body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+}
+
+html {
+  font-size: 16px;
+}
+
+p.super-text {
+  color: var(--clr-main);
 }
 
 /*# sourceMappingURL=main.css.map */

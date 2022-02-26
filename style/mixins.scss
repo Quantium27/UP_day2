@@ -1,0 +1,12 @@
+@mixin setVariable($name, $value) {
+  --#{$name}: #{$value};
+}
+
+@function getVariable($name) {
+  @return var(--#{unquote($name)});
+}
+
+//Функция для использования цветов из CSS-переменных
+@function c($colorName) {
+  @return getVariable(clr-#{$colorName})
+}
