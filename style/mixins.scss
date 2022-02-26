@@ -10,3 +10,14 @@
 @function c($colorName) {
   @return getVariable(clr-#{$colorName})
 }
+
+@mixin std-transition($duration: 0.1s) {
+  transition: all $duration ease-out;
+}
+
+@mixin no-selection() {
+  user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+}
