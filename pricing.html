@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta charset="UTF-8">
-    <title>Неон - Компьютерный клуб</title>
+    <title>Цены - Неон</title>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <!--    Библиотеки-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="style/fonts/fselliotpro/FSElliotPro.css">
     <link rel="stylesheet" href="style/main.css">
-    <link rel="stylesheet" href="style/index.css">
+    <link rel="stylesheet" href="style/pricing.css">
 </head>
 <body>
 <!--SVG иконки сайта-->
@@ -31,101 +31,122 @@
         </svg>
         <h1>Неон</h1>
     </a>
-<!--    Кнопка сворачивания меню. На будущее-->
+    <!--    Кнопка сворачивания меню. На будущее-->
     <button class="menu-button" type="button" data-bs-toggle="collapse" data-bs-target="#headerNavBar" aria-expanded="false">Меню</button>
-<!--    Навигация-->
+    <!--    Навигация-->
     <nav class="collapse nav-bar" id="headerNavBar">
-        <a href="https://praktika.neonc.ru" class="nav-item selected">Главная</a>
-        <a href="https://praktika.neonc.ru/pricing.html" class="nav-item">Цены</a>
+        <a href="https://praktika.neonc.ru" class="nav-item">Главная</a>
+        <a href="#" class="nav-item selected">Цены</a>
         <a href="https://praktika.neonc.ru/about" class="nav-item">О нас</a>
         <a href="https://praktika.neonc.ru/galery" class="nav-item">Галерея</a>
     </nav>
 </header>
 <!--Контент-->
 <main class="main" id="main">
+<!--Хлебные крошки    -->
+    <div class="breadcrumbs">
+        <a href="https://praktika.neonc.ru" class="item">Главная</a>
+        <p class="item current">Цены</p>
+    </div>
 <!--    Контент страницы-->
     <div class="page">
-        <div class="front">
-<!--            Для фона-->
-            <div class="bg">
-                <div class="img"></div>
-            </div>
-            <div class="center">
-<!--                Имя, Слоган-->
-                <div class="left">
-                    <h1>Неон</h1>
-                    <h2>Игры. Везде. Всегда</h2>
+        <div class="page-name">
+            <h2>Цены на услуги</h2>
+        </div>
+        <div class="pricing-list">
+            <div class="group">
+                <h3 class="title">Будни</h3>
+                <div class="prices">
+                    <div class="item">
+                        <div class="name">
+                            <span>С 8:00 по 17:00</span>
+                        </div>
+                        <div class="price">
+                            <span>90&#8381;/час</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <span>С 17:00 по 0:00</span>
+                            <span>С 0:00 по 8:00</span>
+                        </div>
+                        <div class="price">
+                            <span>120&#8381;/час</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="right">
-                    <div class="info">
-                        <p><b>Компьютерный клуб Неон</b> предлагает возможность арендовать любой компьютер из множества имеющихся разной комплектации для разных задач на час и более по разумным ценам</p>
-                        <p>Есть вопросы, жалобы или предложения?</p>
-                        <a href="#contact-form" class="btn">Связаться с нами</a>
+            </div>
+            <div class="group">
+                <h3 class="title">Выходные/Праздники</h3>
+                <div class="prices">
+                    <div class="item">
+                        <div class="name">
+                            <span>С 8:00 по 17:00</span>
+                        </div>
+                        <div class="price">
+                            <span>120&#8381;/час</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <span>С 17:00 по 0:00</span>
+                            <span>С 0:00 по 8:00</span>
+                        </div>
+                        <div class="price">
+                            <span>150&#8381;/час</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="group">
+                <h3 class="title"><span style="color: gold">VIP</span> Будни</h3>
+                <div class="prices">
+                    <div class="item">
+                        <div class="name">
+                            <span>С 8:00 по 17:00</span>
+                        </div>
+                        <div class="price">
+                            <span>150&#8381;/час</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <span>С 17:00 по 0:00</span>
+                            <span>С 0:00 по 8:00</span>
+                        </div>
+                        <div class="price">
+                            <span>190&#8381;/час</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="group">
+                <h3 class="title"><span style="color: gold">VIP</span> Выходные/Праздники</h3>
+                <div class="prices">
+                    <div class="item">
+                        <div class="name">
+                            <span>С 8:00 по 17:00</span>
+                        </div>
+                        <div class="price">
+                            <span>190&#8381;/час</span>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="name">
+                            <span>С 17:00 по 0:00</span>
+                            <span>С 0:00 по 8:00</span>
+                        </div>
+                        <div class="price">
+                            <span>225&#8381;/час</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="separator"></div>
-<!--        Секция о преимуществах фирмы-->
-        <section class="section why" id="why">
-            <div class="title">
-                <h3>Почему мы?</h3>
-            </div>
-            <div class="list">
-                <div class="item">
-                    <div class="name">
-                        <h4>Быстродействие</h4>
-                    </div>
-                    <div class="description">
-                        <p>Каждый компьютер имеет доступ к сети Интернет со скоростью от 100 МБ/с и более</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="name">
-                        <h4>Разнообразие</h4>
-                    </div>
-                    <div class="description">
-                        <p>У нас имеются компьютеры на любой выбор: офисный, игровой, для монтажа, консоли, для VR и т.д.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="name">
-                        <h4>Разумные цены</h4>
-                    </div>
-                    <div class="description">
-                        <p>Мы стараемся держать наши тарифы в разумных пределах.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="name">
-                        <h4>Круглосуточная работа</h4>
-                    </div>
-                    <div class="description">
-                        <p>Мы работаем 24 на 7</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="name">
-                        <h4>Качество</h4>
-                    </div>
-                    <div class="description">
-                        <p>Наши компьютеры имеют лучшие комплектации для поставленной задачи.</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="name">
-                        <h4>Доступность</h4>
-                    </div>
-                    <div class="description">
-                        <p>Клуб расположен прямо в центре Перми</p>
-                    </div>
-                </div>
-            </div>
-        </section>
     </div>
 </main>
 <!--Форма контакта-->
-<div class="contact-form" id="contact-form">
+<div class="contact-form">
     <h3 class="title">Хотите поделиться своим мнением, напишите нам</h3>
     <form class="form" action="#" method="get">
         <label for="name">Имя</label>

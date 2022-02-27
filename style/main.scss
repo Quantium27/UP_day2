@@ -10,7 +10,9 @@
   @include setVariable("clr-main", #44aa8f);
   @include setVariable("clr-main-h", darken(#44aa8f, 10%));
   @include setVariable("clr-bg", #2c2c2c);
+  @include setVariable("clr-bg-1", #373737);
   @include setVariable("clr-text", #fafafa);
+  @include setVariable("lg-width", 1280px);
 }
 
 html, body {
@@ -22,36 +24,47 @@ html {
   font-size: 16px;
   min-height: 100%;
   display: grid;
+  //Для отображения прокрутки сайта в тёмном варианте в браузерах
+  color-scheme: dark;
 }
 
 body {
   min-height: 100%;
   display: grid;
-  grid-template-areas: 'header' 'main' 'footer';
+  grid-template-areas: '_' '_' '_';
   grid-template-rows: auto 1fr auto;
-}
-
-p.super-text {
-  color: c(main);
+  row-gap: 10px;
+  justify-items: center;
 }
 
 .header {
-  grid-area: header;
   height: 48px;
   display: grid;
   grid-template-areas: 'logo nav button';
   grid-template-columns: auto 1fr auto;
-  background-color: fadedLight(.05);
+  background-color: c(bg-1);
+  width: 100%;
 
   @include no-selection();
 
   .logo {
     grid-area: logo;
     display: grid;
+    grid-auto-flow: column;
     place-content: center center;
+    place-items: center center;
+    column-gap: 10px;
     color: c(text);
     text-decoration: none;
+    padding: 0 5px;
     @include std-transition();
+
+    .icon {
+      fill: c(text);
+      height: 75%;
+      width: auto;
+      @include std-transition();
+    }
 
     h1 {
       font-size: 40px;
@@ -62,8 +75,17 @@ p.super-text {
 
     &:hover {
       color: c(main);
+
+      .icon {
+        fill: c(main);
+      }
+
       &:active {
         color: c(main-h);
+
+        .icon {
+          fill: c(main-h);
+        }
       }
     }
   }
@@ -113,13 +135,14 @@ p.super-text {
 }
 
 .main {
-  grid-area: main;
   display: grid;
   grid-template-areas: 'breadcrumbs' 'page';
   grid-template-rows: auto 1fr;
-  margin: 10px 0;
-  background-color: fadedLight(.05);
+  grid-template-columns: 1fr;
+  background-color: c(bg-1);
   row-gap: 10px;
+  max-width: getVariable(lg-width);
+  width: 100%;
 
   .breadcrumbs {
     grid-area: breadcrumbs;
@@ -130,7 +153,6 @@ p.super-text {
     position: relative;
     margin: 5px 10px;
     border-radius: 4px;
-    background-color: fadedLight(.05);
     background: linear-gradient(90deg, fadedLight(.05) 85%, transparent);
 
     .item {
@@ -191,14 +213,36 @@ p.super-text {
   }
 }
 
+.contact-form {
+  display: grid;
+  grid-template-areas: 'title' 'form';
+  grid-template-rows: auto 1fr;
+  background-color: c(bg-1);
+  padding: 10px;
+  border: solid 2px c(main);
+  box-shadow: 0 0 10px -2px c(main);
+
+  .title {
+    grid-area: title;
+    font-weight: 600;
+  }
+
+  .form {
+    grid-area: form;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 4px;
+  }
+}
+
 .footer {
-  grid-area: footer;
   display: grid;
   grid-template-areas: 'left center right';
   grid-template-columns: 1fr 1fr 1fr;
-  background-color: fadedLight(.05);
+  background-color: c(bg-1);
   padding: 5px;
   column-gap: 12px;
+  width: 100%;
 
   .left {
     grid-area: left;
@@ -302,7 +346,7 @@ p.super-text {
     grid-area: right;
     position: relative;
     display: grid;
-    grid-auto-flow: row;
+    grid-template-areas: '_ _' '_ _';
     align-content: center;
     justify-items: center;
 
@@ -324,6 +368,7 @@ p.super-text {
       position: relative;
       @include std-transition();
 
+      //Код из Bootstrap Icons для иконки
       &::before {
         display: block;
         position: absolute;
@@ -334,7 +379,7 @@ p.super-text {
         text-transform: none;
         line-height: 1;
         -webkit-font-smoothing: antialiased;
-        content: '\F138';
+        content: '\F138'; //иконка стрелки вправо
         top: calc(50% - 8px);
         right: calc(100% + 4px + 20px);
         width: 16px;
@@ -355,5 +400,91 @@ p.super-text {
         }
       }
     }
+  }
+}
+
+.text-field {
+  background-color: fadedLight(.05);
+  border: none;
+  outline: none;
+  border-bottom: solid 3px fadedLight(.05);
+  height: 36px;
+  color: c(text);
+  font-weight: 100;
+  font-size: 20px;
+  padding: 0 4px;
+  @include std-transition();
+
+  &:hover {
+    background-color: fadedLight(.1);
+  }
+  &:focus {
+    border-bottom-color: c(main);
+  }
+}
+
+.text-area {
+  background-color: fadedLight(.05);
+  border: solid 3px fadedLight(.05);
+  outline: none;
+  color: c(text);
+  font-weight: 100;
+  font-size: 20px;
+  padding: 4px;
+  @include std-transition();
+
+  &:hover {
+    background-color: fadedLight(.1);
+  }
+  &:focus {
+    border-color: c(main);
+  }
+}
+
+.btn {
+  background-color: fadedLight(.05);
+  border: solid 3px fadedLight(.05);
+  outline: none;
+  color: c(text);
+  font-weight: 500;
+  font-size: 20px;
+  justify-self: start;
+  border-radius: 0;
+  margin-top: 10px;
+  @include std-transition();
+
+  &:hover {
+    background-color: fadedLight(.1);
+    color: c(text);
+    &:active {
+      border-color: c(main);
+      box-shadow: 0 0 10px 0 c(main);
+    }
+  }
+
+  &:active, &:focus {
+    box-shadow: none;
+    outline: none;
+  }
+}
+
+.separator {
+  width: 100%;
+  height: 4px;
+  background-color: c(bg);
+  margin: 12px 0;
+  position: relative;
+
+  &::after {
+    display: block;
+    position: absolute;
+    content: '';
+    top: -9px;
+    left: calc(50% - 11px);
+    width: 22px;
+    height: 22px;
+    border-radius: 11px;
+    border: solid 4px c(bg-1);
+    background-color: c(bg);
   }
 }

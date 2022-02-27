@@ -1,11 +1,14 @@
+//Примесь, устанавливающая значение CSS-переменной
 @mixin setVariable($name, $value) {
   --#{$name}: #{$value};
 }
 
+//Функция получения значения CSS-переменной.
 @function getVariable($name) {
   @return var(--#{unquote($name)});
 }
 
+//Функция для создания полупрозрачного белого
 @function fadedLight($fade: 0.5) {
   @return fade-out(white, 1 - $fade);
 }
@@ -15,10 +18,12 @@
   @return getVariable(clr-#{$colorName})
 }
 
+//Примесь для плавной анимации.
 @mixin std-transition($duration: 0.1s) {
   transition: all $duration ease-out;
 }
 
+//Примесь для запрета выделения текста и изображений
 @mixin no-selection() {
   user-select: none;
   -moz-user-select: none;

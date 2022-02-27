@@ -1,0 +1,151 @@
+.main {
+  display: grid;
+}
+
+.page {
+  display: grid;
+  max-width: 100%;
+}
+.page .front {
+  display: grid;
+  max-width: 100%;
+  height: 75vh;
+  position: relative;
+}
+.page .front::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  mask-image: url("../image/svg/logo.svg");
+  -webkit-mask-image: url("../image/svg/logo.svg");
+  mask-position: left 5% top 60%;
+  -webkit-mask-position: left 5% top 60%;
+  mask-repeat: no-repeat;
+  -webkit-mask-repeat: no-repeat;
+  mask-size: 33%;
+  -webkit-mask-size: 33%;
+  background: linear-gradient(-90deg, var(--clr-text), var(--clr-main));
+}
+.page .front .bg {
+  display: grid;
+  max-width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 75vh;
+  width: 100%;
+  overflow: hidden;
+}
+.page .front .bg .img {
+  background-image: url("../image/banner_bg.jpg");
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  filter: blur(10px) brightness(70%);
+}
+.page .front .center {
+  z-index: 10;
+  display: grid;
+  grid-template-areas: "t ." ". b";
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  padding: 20px;
+}
+.page .front .center .left {
+  grid-area: t;
+  place-self: center center;
+}
+.page .front .center .left h1 {
+  font-weight: 1000;
+  font-size: 96px;
+  line-height: 0.875;
+  text-shadow: 0 0 20px var(--clr-main);
+}
+.page .front .center .left h2 {
+  font-weight: 700;
+  line-height: 0.875;
+  text-shadow: 0 0 10px var(--clr-main);
+}
+.page .front .center .right {
+  grid-area: b;
+  display: grid;
+  align-content: center;
+  justify-content: center;
+}
+.page .front .center .right .info {
+  display: grid;
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 300;
+}
+.page .front .center .right .info .btn {
+  place-self: center center;
+}
+.page .section.why {
+  display: grid;
+  row-gap: 10px;
+}
+.page .section.why .title {
+  display: grid;
+  place-content: center center;
+}
+.page .section.why .title h3 {
+  font-weight: 700;
+}
+.page .section.why .list {
+  display: grid;
+  grid-template-areas: "i i i" "i i i";
+  grid-gap: 20px;
+  padding: 10px 20px;
+  background: url("../image/grid.png") fixed;
+  background-position: center center;
+  background-size: cover;
+  box-shadow: inset 0 0 20px 10px var(--clr-bg-1);
+}
+.page .section.why .list .item {
+  display: grid;
+  padding: 10px;
+  row-gap: 10px;
+  background: var(--clr-bg);
+  border: solid 2px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 10px var(--clr-bg);
+  opacity: 0.75;
+  transition: all 0.1s ease-out;
+}
+.page .section.why .list .item p, .page .section.why .list .item h4 {
+  margin: 0;
+}
+.page .section.why .list .item:hover {
+  border: solid 2px var(--clr-main);
+  box-shadow: 0 0 10px var(--clr-main);
+  opacity: 1;
+}
+.page .section.why .list .item:hover .name::after {
+  opacity: 1;
+}
+.page .section.why .list .item .name {
+  position: relative;
+  font-weight: 600;
+}
+.page .section.why .list .item .name::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: calc(100% + 2px);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: var(--clr-main);
+  opacity: 0;
+  box-shadow: 0 0 10px var(--clr-main);
+  transition: all 0.1s ease-out;
+}
+.page .section.why .list .item .description {
+  font-weight: 300;
+}
+
+/*# sourceMappingURL=index.css.map */

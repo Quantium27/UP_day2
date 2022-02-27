@@ -1,0 +1,175 @@
+@import "mixins";
+
+.main {
+  display: grid;
+}
+
+.page {
+  display: grid;
+  max-width: 100%;
+
+  .front {
+    display: grid;
+    max-width: 100%;
+    height: 75vh;
+    position: relative;
+
+    //Логотип. Используется маска для наложения градиента поверх SVG изображения
+    &::after {
+      display: block;
+      position: absolute;
+      content: '';
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      mask-image: url("../image/svg/logo.svg");
+      -webkit-mask-image: url("../image/svg/logo.svg");
+      mask-position: left 5% top 60%;
+      //noinspection CssInvalidPropertyValue
+      -webkit-mask-position: left 5% top 60%;
+      mask-repeat: no-repeat;
+      -webkit-mask-repeat: no-repeat;
+      mask-size: 33%;
+      -webkit-mask-size: 33%;
+      background: linear-gradient(-90deg, c(text), c(main));
+    }
+
+    .bg {
+      display: grid;
+      max-width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 75vh;
+      width: 100%;
+      overflow: hidden;
+
+      //Фон
+      .img {
+        background-image: url("../image/banner_bg.jpg");
+        background-attachment: fixed;
+        background-size: 100% 100%;
+        filter: blur(10px) brightness(70%);
+      }
+    }
+
+    .center {
+      z-index: 10;
+      display: grid;
+      grid-template-areas: 't .' '. b';
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto 1fr;
+      padding: 20px;
+
+      .left {
+        grid-area: t;
+        place-self: center center;
+
+        h1 {
+          font-weight: 1000;
+          font-size: 96px;
+          line-height: 0.875;
+          text-shadow: 0 0 20px c(main);
+        }
+
+        h2 {
+          font-weight: 700;
+          line-height: 0.875;
+          text-shadow: 0 0 10px c(main);
+        }
+      }
+
+      .right {
+        grid-area: b;
+        display: grid;
+        align-content: center;
+        justify-content: center;
+
+        .info {
+          display: grid;
+          background-color: fadedLight(.15);
+          padding: 10px;
+          font-size: 18px;
+          font-weight: 300;
+
+          .btn {
+            place-self: center center;
+          }
+        }
+      }
+    }
+  }
+
+  .section.why {
+    display: grid;
+    row-gap: 10px;
+
+    .title {
+      display: grid;
+      place-content: center center;
+      h3 {
+        font-weight: 700;
+      }
+    }
+
+    .list {
+      display: grid;
+      grid-template-areas: 'i i i' 'i i i';
+      grid-gap: 20px;
+      padding: 10px 20px;
+      background: url("../image/grid.png") fixed;
+      background-position: center center;
+      background-size: cover;
+      box-shadow: inset 0 0 20px 10px c(bg-1);
+
+      .item {
+        display: grid;
+        padding: 10px;
+        row-gap: 10px;
+        background: c(bg);
+        border: solid 2px fadedLight(.2);
+        box-shadow: 0 0 10px c(bg);
+        opacity: .75;
+        @include std-transition();
+
+        p, h4 {
+          margin: 0;
+        }
+
+        &:hover {
+          border: solid 2px c(main);
+          box-shadow: 0 0 10px c(main);
+          opacity: 1;
+
+          .name::after {
+            opacity: 1;
+          }
+        }
+
+        .name {
+          position: relative;
+          font-weight: 600;
+
+          &::after {
+            display: block;
+            position: absolute;
+            content: '';
+            top: calc(100% + 2px);
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: c(main);
+            opacity: 0;
+            box-shadow: 0 0 10px c(main);
+            @include std-transition();
+          }
+        }
+
+        .description {
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}
