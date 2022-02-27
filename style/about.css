@@ -1,0 +1,40 @@
+.about {
+  display: grid;
+  row-gap: 10px;
+  max-width: 80%;
+  place-self: center center;
+}
+.about .logo {
+  display: grid;
+  place-content: center center;
+}
+.about .logo .icon {
+  fill: var(--clr-text);
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 20px;
+  transition: all 0.1s ease-out;
+}
+.about .logo .icon:hover {
+  fill: var(--clr-main);
+}
+.about .title {
+  display: grid;
+  place-content: center center;
+  font-size: 36px;
+  margin: 0;
+  font-weight: 1000;
+}
+.about .text {
+  padding: 0 10px;
+  font-weight: 100;
+  font-size: 18px;
+  border-left: solid 2px var(--clr-main);
+  border-right: solid 2px var(--clr-main);
+  text-align: justify;
+}
+.about .text p {
+  margin: 0;
+}
+
+/*# sourceMappingURL=about.css.map */

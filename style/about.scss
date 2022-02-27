@@ -1,0 +1,43 @@
+@import "mixins";
+
+.about {
+  display: grid;
+  row-gap: 10px;
+  max-width: 80%;
+  place-self: center center;
+
+  .logo {
+    display: grid;
+    place-content: center center;
+    .icon {
+      fill: c(text);
+      background-color: fadedLight(.1);
+      padding: 10px;
+      border-radius: 20px;
+      @include std-transition();
+      &:hover {
+        fill: c(main);
+      }
+    }
+  }
+
+  .title {
+    display: grid;
+    place-content: center center;
+    font-size: 36px;
+    margin: 0;
+    font-weight: 1000;
+  }
+
+  .text {
+    padding: 0 10px;
+    font-weight: 100;
+    font-size: 18px;
+    border-left: solid 2px c(main);
+    border-right: solid 2px c(main);
+    text-align: justify;
+    p {
+      margin: 0;
+    }
+  }
+}

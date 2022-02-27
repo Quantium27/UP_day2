@@ -1,35 +1,6 @@
 @import "mixins";
 
 .page {
-  .page-name {
-    position: relative;
-    display: grid;
-    place-content: center center;
-    z-index: 10;
-    margin-bottom: 20px;
-
-    h2 {
-      display: block;
-      text-align: center;
-      font-weight: 700;
-      line-height: 1;
-      background-color: c(bg-1);
-      padding: 0 4px;
-      z-index: 0;
-    }
-
-    &::before {
-      display: block;
-      position: absolute;
-      content: '';
-      top: calc(50% - 1px);
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, c(main), transparent);
-    }
-  }
-
   .pricing-list {
     display: grid;
     grid-auto-flow: row;

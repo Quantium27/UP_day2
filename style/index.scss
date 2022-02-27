@@ -26,6 +26,7 @@
       mask-image: url("../image/svg/logo.svg");
       -webkit-mask-image: url("../image/svg/logo.svg");
       mask-position: left 5% top 60%;
+      //PHPStorm жалуется на -webkit-mask-position
       //noinspection CssInvalidPropertyValue
       -webkit-mask-position: left 5% top 60%;
       mask-repeat: no-repeat;
