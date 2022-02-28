@@ -8,6 +8,10 @@
     gap: 10px;
     grid-template-areas: '_ _' '_ _';
 
+    @include on-phones() {
+      grid-template-areas: '_' '_' '_' '_';
+    }
+
     .group {
       background-color: fadedLight(.05);
       padding: 10px;

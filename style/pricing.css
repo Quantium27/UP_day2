@@ -5,6 +5,11 @@
   gap: 10px;
   grid-template-areas: "_ _" "_ _";
 }
+@media (max-width: 767.98px) {
+  .page .pricing-list {
+    grid-template-areas: "_" "_" "_" "_";
+  }
+}
 .page .pricing-list .group {
   background-color: rgba(255, 255, 255, 0.05);
   padding: 10px;

@@ -13,6 +13,9 @@
   @include setVariable("clr-bg-1", #373737);
   @include setVariable("clr-text", #fafafa);
   @include setVariable("lg-width", 1280px);
+  font-size: 16px;
+  //Для отображения прокрутки сайта в тёмном варианте в браузерах
+  color-scheme: dark;
 }
 
 html, body {
@@ -21,31 +24,37 @@ html, body {
 }
 
 html {
-  font-size: 16px;
-  min-height: 100%;
-  display: grid;
-  //Для отображения прокрутки сайта в тёмном варианте в браузерах
-  color-scheme: dark;
+  height: 100%;
 }
 
 body {
-  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.site {
   display: grid;
-  grid-template-areas: '_' '_' '_';
-  grid-template-rows: auto 1fr auto;
-  row-gap: 10px;
-  justify-items: center;
+  height: 100%;
+  grid-template-areas: 'main' 'form' 'footer';
+  grid-template-rows: 1fr auto auto;
+  grid-gap: 10px;
+  overflow-x: hidden;
+  padding-top: 48px + 10px;
 }
 
 .header {
-  height: 48px;
+  height: auto;
   display: grid;
   grid-template-areas: 'logo nav button';
   grid-template-columns: auto 1fr auto;
   background-color: c(bg-1);
   width: 100%;
-
-  @include no-selection();
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  border-bottom: solid 2px c(main);
 
   .logo {
     grid-area: logo;
@@ -58,6 +67,11 @@ body {
     text-decoration: none;
     padding: 0 5px;
     @include std-transition();
+
+    @include on-phones() {
+      height: 100%;
+      place-self: start;
+    }
 
     .icon {
       fill: c(text);
@@ -90,8 +104,31 @@ body {
     }
   }
 
-  .nav-bar {
+  @include on-phones() {
+    grid-template-areas:  'logo button'
+                          'nav  .';
+    grid-template-columns: 1fr auto;
+    justify-content: space-between;
+  }
+
+  .collapse {
     grid-area: nav;
+    display: grid;
+
+    @include on-phones() {
+      width: 100%;
+
+      &.collapse:not(.show) {
+        display: none;
+      }
+
+      &.collapsing {
+        height: auto !important;
+      }
+    }
+  }
+
+  .nav-bar {
     display: grid;
     place-content: center center;
     grid-auto-flow: column;
@@ -105,6 +142,46 @@ body {
       position: relative;
       @include std-transition();
 
+      @include on-phones() {
+        width: 100%;
+        padding: 5px 8px 5px 5px;
+        text-align: right;
+
+        &:nth-child(2n + 1) {
+          background-color: fadedLight(0.05);
+        }
+
+        &::before {
+          display: block;
+          position: absolute;
+          font-family: bootstrap-icons !important;
+          font-style: normal;
+          font-weight: normal !important;
+          font-variant: normal;
+          text-transform: none;
+          line-height: 1;
+          -webkit-font-smoothing: antialiased;
+          content: '\F12F'; //иконка стрелки влево
+          color: c(text);
+          top: calc(50% - 8px);
+          left: calc(100% - 16px);
+          width: 16px;
+          height: 16px;
+          opacity: 0;
+          pointer-events: none;
+          @include std-transition();
+        }
+
+        &:hover::before {
+          opacity: 1;
+          left: calc(100% + 4px);
+        }
+
+        &:hover:active::before {
+          color: c(main);
+        }
+      }
+
       &.selected {
         &::after {
           display: block;
@@ -116,6 +193,13 @@ body {
           height: 3px;
           background-color: c(main);
           border-radius: 0 0 3px 3px;
+
+          @include on-phones() {
+            left: auto;
+            right: 0;
+            width: 3px;
+            height: 100%;
+          }
         }
       }
 
@@ -126,15 +210,37 @@ body {
         }
       }
     }
+
+    @include on-phones() {
+      background-color: c(bg-1);
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+    }
   }
 
   .menu-button {
     grid-area: button;
     display: none;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 32px;
+    color: c(text);
+    @include std-transition(.33s);
+
+    &:not(.collapsed) {
+      transform: rotate(90deg);
+    }
+
+    @include on-phones() {
+      display: block;
+      height: 100%;
+    }
   }
 }
 
 .main {
+  grid-area: main;
   display: grid;
   grid-template-areas: 'breadcrumbs' 'page';
   grid-template-rows: auto 1fr;
@@ -143,6 +249,7 @@ body {
   row-gap: 10px;
   max-width: getVariable(lg-width);
   width: 100%;
+  margin: 0 auto;
 
   .breadcrumbs {
     grid-area: breadcrumbs;
@@ -210,7 +317,12 @@ body {
   .page {
     grid-area: page;
     display: grid;
+    height: 100%;
     padding: 5px;
+
+    @include on-phones() {
+      padding: 5px 0;
+    }
 
     .page-name {
       position: relative;
@@ -244,6 +356,7 @@ body {
 }
 
 .contact-form {
+  grid-area: form;
   display: grid;
   grid-template-areas: 'title' 'form';
   grid-template-rows: auto 1fr;
@@ -251,6 +364,12 @@ body {
   padding: 10px;
   border: solid 2px c(main);
   box-shadow: 0 0 10px -2px c(main);
+  margin: 10px auto;
+
+  @include on-phones() {
+    border-left: none;
+    border-right: none;
+  }
 
   .title {
     grid-area: title;
@@ -266,6 +385,7 @@ body {
 }
 
 .footer {
+  grid-area: footer;
   display: grid;
   grid-template-areas: 'left center right';
   grid-template-columns: 1fr 1fr 1fr;
@@ -273,6 +393,15 @@ body {
   padding: 5px;
   column-gap: 12px;
   width: 100%;
+  margin: 0 auto;
+
+  @include on-phones() {
+    grid-template-areas: 'left' 'center' 'right';
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    column-gap: 0;
+    row-gap: 12px;
+  }
 
   .left {
     grid-area: left;
@@ -379,6 +508,10 @@ body {
     grid-template-areas: '_ _' '_ _';
     align-content: center;
     justify-items: center;
+
+    @include on-tablets() {
+      grid-template-areas: '_' '_' '_' '_';
+    }
 
     &::before {
       display: block;

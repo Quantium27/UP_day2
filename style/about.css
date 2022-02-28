@@ -4,6 +4,11 @@
   max-width: 80%;
   place-self: center center;
 }
+@media (max-width: 767.98px) {
+  .about {
+    max-width: 95%;
+  }
+}
 .about .logo {
   display: grid;
   place-content: center center;

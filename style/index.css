@@ -5,11 +5,11 @@
 .page {
   display: grid;
   max-width: 100%;
+  grid-template-rows: minmax(75vh, auto);
 }
 .page .front {
   display: grid;
   max-width: 100%;
-  height: 75vh;
   position: relative;
 }
 .page .front::after {
@@ -30,13 +30,33 @@
   -webkit-mask-size: 33%;
   background: linear-gradient(-90deg, var(--clr-text), var(--clr-main));
 }
+@media (max-width: 767.98px) {
+  .page .front::after {
+    mask-position: left 90% top 5%;
+    -webkit-mask-position: left 90% top 5%;
+    mask-size: 15%;
+    -webkit-mask-size: 15%;
+  }
+}
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .page .front::after {
+    mask-size: 25%;
+    -webkit-mask-size: 25%;
+  }
+}
+@media (min-width: 1200px) {
+  .page .front::after {
+    mask-size: 20%;
+    -webkit-mask-size: 20%;
+  }
+}
 .page .front .bg {
   display: grid;
   max-width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  height: 75vh;
+  height: 100%;
   width: 100%;
   overflow: hidden;
 }
@@ -46,6 +66,11 @@
   background-size: 100% 100%;
   filter: blur(10px) brightness(70%);
 }
+@media (max-width: 767.98px) {
+  .page .front .bg .img {
+    background-attachment: initial;
+  }
+}
 .page .front .center {
   z-index: 10;
   display: grid;
@@ -54,9 +79,17 @@
   grid-template-rows: auto 1fr;
   padding: 20px;
 }
+@media (max-width: 767.98px) {
+  .page .front .center {
+    padding: 10px;
+    grid-template-areas: "t" "b";
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+  }
+}
 .page .front .center .left {
   grid-area: t;
-  place-self: center center;
+  place-self: center left;
 }
 .page .front .center .left h1 {
   font-weight: 1000;
@@ -64,10 +97,20 @@
   line-height: 0.875;
   text-shadow: 0 0 20px var(--clr-main);
 }
+@media (max-width: 767.98px) {
+  .page .front .center .left h1 {
+    font-size: 64px;
+  }
+}
 .page .front .center .left h2 {
   font-weight: 700;
   line-height: 0.875;
   text-shadow: 0 0 10px var(--clr-main);
+}
+@media (max-width: 767.98px) {
+  .page .front .center .left h2 {
+    font-size: 24px;
+  }
 }
 .page .front .center .right {
   grid-area: b;
@@ -105,6 +148,18 @@
   background-position: center center;
   background-size: cover;
   box-shadow: inset 0 0 20px 10px var(--clr-bg-1);
+}
+@media (max-width: 767.98px) {
+  .page .section.why .list {
+    grid-template-areas: "i" "i" "i" "i" "i" "i";
+    background-attachment: initial;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .page .section.why .list {
+    grid-template-areas: "i i" "i i" "i i";
+    background-attachment: initial;
+  }
 }
 .page .section.why .list .item {
   display: grid;

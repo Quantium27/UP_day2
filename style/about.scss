@@ -6,6 +6,10 @@
   max-width: 80%;
   place-self: center center;
 
+  @include on-phones() {
+    max-width: 95%;
+  }
+
   .logo {
     display: grid;
     place-content: center center;

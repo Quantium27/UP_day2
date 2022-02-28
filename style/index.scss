@@ -7,11 +7,12 @@
 .page {
   display: grid;
   max-width: 100%;
+  grid-template-rows: minmax(75vh, auto);
 
   .front {
     display: grid;
     max-width: 100%;
-    height: 75vh;
+    //height: 75vh;
     position: relative;
 
     //Логотип. Используется маска для наложения градиента поверх SVG изображения
@@ -34,6 +35,24 @@
       mask-size: 33%;
       -webkit-mask-size: 33%;
       background: linear-gradient(-90deg, c(text), c(main));
+
+      @include on-phones() {
+        mask-position: left 90% top 5%;
+        //noinspection CssInvalidPropertyValue
+        -webkit-mask-position: left 90% top 5%;
+        mask-size: 15%;
+        -webkit-mask-size: 15%;
+      }
+
+      @include on-notebooks() {
+        mask-size: 25%;
+        -webkit-mask-size: 25%;
+      }
+
+      @include on-full-size() {
+        mask-size: 20%;
+        -webkit-mask-size: 20%;
+      }
     }
 
     .bg {
@@ -42,7 +61,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      height: 75vh;
+      height: 100%;
       width: 100%;
       overflow: hidden;
 
@@ -52,6 +71,10 @@
         background-attachment: fixed;
         background-size: 100% 100%;
         filter: blur(10px) brightness(70%);
+
+        @include on-phones() {
+          background-attachment: initial;
+        }
       }
     }
 
@@ -63,21 +86,36 @@
       grid-template-rows: auto 1fr;
       padding: 20px;
 
+      @include on-phones() {
+        padding: 10px;
+        grid-template-areas: 't' 'b';
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+      }
+
       .left {
         grid-area: t;
-        place-self: center center;
+        place-self: center left;
 
         h1 {
           font-weight: 1000;
           font-size: 96px;
           line-height: 0.875;
           text-shadow: 0 0 20px c(main);
+
+          @include on-phones() {
+            font-size: 64px;
+          }
         }
 
         h2 {
           font-weight: 700;
           line-height: 0.875;
           text-shadow: 0 0 10px c(main);
+
+          @include on-phones() {
+            font-size: 24px;
+          }
         }
       }
 
@@ -123,6 +161,16 @@
       background-position: center center;
       background-size: cover;
       box-shadow: inset 0 0 20px 10px c(bg-1);
+
+      @include on-phones() {
+        grid-template-areas: 'i' 'i' 'i' 'i' 'i' 'i';
+        background-attachment: initial;
+      }
+
+      @include on-tablets {
+        grid-template-areas: 'i i' 'i i' 'i i';
+        background-attachment: initial;
+      }
 
       .item {
         display: grid;

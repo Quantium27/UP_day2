@@ -30,3 +30,61 @@
   -ms-user-select: none;
   -webkit-user-select: none;
 }
+
+//
+// МЕДИА ПРИМЕСИ
+// Брейкпоинты взяты из Bootstrap v5.1
+//
+
+//Миксин - медиа меньше X
+//расшифровка: lt = less than
+@mixin media-lt($x) {
+  //вычитаем .02px для поддержки устройств высокого разрешения
+  @media (max-width: #{$x - .02px}) {
+    @content
+  }
+}
+
+//Миксин - медиа больше X
+//расшифровка: gt = greater than
+@mixin media-gt($x) {
+  @media (min-width: #{$x}) {
+    @content
+  }
+}
+
+//Миксин - медиа между X и Y
+@mixin media-in($x, $y) {
+  //вычитаем .02px для поддержки устройств высокого разрешения
+  @media (min-width: #{$x}) and (max-width: #{$y - .02px}) {
+    @content
+  }
+}
+
+//Медиа для телефонов(<= 768px)
+@mixin on-phones() {
+  @include media-lt(768px) {
+    @content
+  }
+}
+
+//Медиа для планшетов(768px => 992px)
+@mixin on-tablets() {
+  @include media-in(768px, 992px) {
+    @content
+  }
+}
+
+//Медиа для ноутбуков(992px => 1200px)
+@mixin on-notebooks() {
+  @include media-in(992px, 1200px) {
+    @content
+  }
+}
+
+//Медиа для полноформатных экранов(> 1200)
+@mixin on-full-size() {
+  @include media-gt(1200px) {
+    @content
+  }
+}
