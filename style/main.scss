@@ -604,30 +604,32 @@ body {
   }
 }
 
-.btn {
-  background-color: fadedLight(.05);
-  border: solid 3px fadedLight(.05);
-  outline: none;
-  color: c(text);
-  font-weight: 500;
-  font-size: 20px;
-  justify-self: start;
-  border-radius: 0;
-  margin-top: 10px;
-  @include std-transition();
-
-  &:hover {
-    background-color: fadedLight(.1);
-    color: c(text);
-    &:active {
-      border-color: c(main);
-      box-shadow: 0 0 10px 0 c(main);
-    }
-  }
-
-  &:active, &:focus {
-    box-shadow: none;
+.site {
+  .btn {
+    background-color: fadedLight(.05);
+    border: solid 3px fadedLight(.05);
     outline: none;
+    color: c(text);
+    font-weight: 500;
+    font-size: 20px;
+    justify-self: start;
+    border-radius: 0;
+    margin-top: 10px;
+    @include std-transition();
+
+    &:hover {
+      background-color: fadedLight(.1);
+      color: c(text);
+      &:active {
+        border-color: c(main);
+        box-shadow: 0 0 10px 0 c(main);
+      }
+    }
+
+    &:active, &:focus {
+      box-shadow: none;
+      outline: none;
+    }
   }
 }
 
@@ -650,4 +652,60 @@ body {
     border: solid 4px c(bg-1);
     background-color: c(bg);
   }
+}
+
+.up-widget {
+  position: fixed;
+  bottom: 92px;
+  right: 32px;
+  display: grid;
+  z-index: 5000;
+  @include std-transition();
+
+  .button {
+    display: grid;
+    place-content: center center;
+    background-color: c(bg-1);
+    width: 48px;
+    height: 48px;
+    border-radius: 24px;
+    color: c(text);
+    font-size: 32px;
+    opacity: .5;
+    cursor: pointer;
+    border: solid 2px transparent;
+    @include std-transition();
+  }
+
+  &:hover {
+    .button {
+      opacity: 1;
+      border-color: c(main);
+      box-shadow: 0 0 10px c(main);
+    }
+  }
+}
+
+.site.at-top .up-widget {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chatbot {
+  z-index: 5005;
+}
+
+.toast-container {
+  z-index: 5002;
+  top: auto;
+  right: auto;
+  left: 15px;
+  bottom: 15px;
+}
+
+//исправление конфликта классов из Bootstrap и Toast
+.toast:not(.show).toast_show {
+  display: block;
+  background-color: c(main);
+  box-shadow: 0 0 10px black;
 }

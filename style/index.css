@@ -202,5 +202,103 @@
 .page .section.why .list .item .description {
   font-weight: 300;
 }
+.page .section.news {
+  display: grid;
+  row-gap: 10px;
+}
+.page .section.news .title {
+  display: grid;
+  place-content: center center;
+}
+.page .section.news .title h3 {
+  font-weight: 700;
+}
+.page .section.news .slider {
+  max-width: 480px;
+  place-self: center center;
+}
+@media (max-width: 767.98px) {
+  .page .section.news .slider {
+    max-width: 100vw;
+  }
+}
+.page .section.news .slider .slider__control {
+  z-index: 10;
+}
+.page .section.news .slider .article {
+  display: grid;
+  grid-template-areas: "name     meta" "summary  summary";
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto 1fr;
+  position: relative;
+  min-height: 240px;
+  z-index: 1;
+  border-radius: 10px;
+  padding: 10px;
+}
+@media (max-width: 767.98px) {
+  .page .section.news .slider .article {
+    border-radius: 0;
+  }
+}
+.page .section.news .slider .article .bg {
+  display: grid;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1;
+  border-radius: 10px;
+}
+@media (max-width: 767.98px) {
+  .page .section.news .slider .article .bg {
+    border-radius: 0;
+  }
+}
+.page .section.news .slider .article .bg .img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  filter: blur(2px) brightness(50%);
+}
+.page .section.news .slider .article .name {
+  grid-area: name;
+}
+.page .section.news .slider .article .name h4 {
+  display: inline-block;
+  font-weight: 750;
+  font-size: 28px;
+  margin: 0;
+  position: relative;
+}
+@media (max-width: 767.98px) {
+  .page .section.news .slider .article .name h4 {
+    font-size: 24px;
+  }
+}
+.page .section.news .slider .article .name h4::after {
+  display: block;
+  position: absolute;
+  content: "";
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: var(--clr-main);
+}
+.page .section.news .slider .article .summary {
+  grid-area: summary;
+  padding: 0 40px;
+  font-weight: 300;
+  place-self: center;
+}
+.page .section.news .slider .article .meta {
+  grid-area: meta;
+  font-weight: 100;
+  opacity: 0.5;
+}
 
 /*# sourceMappingURL=index.css.map */

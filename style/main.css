@@ -553,7 +553,7 @@ body {
   border-color: var(--clr-main);
 }
 
-.btn {
+.site .btn {
   background-color: rgba(255, 255, 255, 0.05);
   border: solid 3px rgba(255, 255, 255, 0.05);
   outline: none;
@@ -565,15 +565,15 @@ body {
   margin-top: 10px;
   transition: all 0.1s ease-out;
 }
-.btn:hover {
+.site .btn:hover {
   background-color: rgba(255, 255, 255, 0.1);
   color: var(--clr-text);
 }
-.btn:hover:active {
+.site .btn:hover:active {
   border-color: var(--clr-main);
   box-shadow: 0 0 10px 0 var(--clr-main);
 }
-.btn:active, .btn:focus {
+.site .btn:active, .site .btn:focus {
   box-shadow: none;
   outline: none;
 }
@@ -596,6 +596,57 @@ body {
   border-radius: 11px;
   border: solid 4px var(--clr-bg-1);
   background-color: var(--clr-bg);
+}
+
+.up-widget {
+  position: fixed;
+  bottom: 92px;
+  right: 32px;
+  display: grid;
+  z-index: 5000;
+  transition: all 0.1s ease-out;
+}
+.up-widget .button {
+  display: grid;
+  place-content: center center;
+  background-color: var(--clr-bg-1);
+  width: 48px;
+  height: 48px;
+  border-radius: 24px;
+  color: var(--clr-text);
+  font-size: 32px;
+  opacity: 0.5;
+  cursor: pointer;
+  border: solid 2px transparent;
+  transition: all 0.1s ease-out;
+}
+.up-widget:hover .button {
+  opacity: 1;
+  border-color: var(--clr-main);
+  box-shadow: 0 0 10px var(--clr-main);
+}
+
+.site.at-top .up-widget {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.chatbot {
+  z-index: 5005;
+}
+
+.toast-container {
+  z-index: 5002;
+  top: auto;
+  right: auto;
+  left: 15px;
+  bottom: 15px;
+}
+
+.toast:not(.show).toast_show {
+  display: block;
+  background-color: var(--clr-main);
+  box-shadow: 0 0 10px black;
 }
 
 /*# sourceMappingURL=main.css.map */

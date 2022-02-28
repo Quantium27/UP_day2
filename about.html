@@ -8,6 +8,9 @@
     <!--    Библиотеки-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style/chief-slider.css">
+    <link rel="stylesheet" href="style/chatbot.css">
+    <link rel="stylesheet" href="style/toast.min.css">
 
     <link rel="stylesheet" href="style/fonts/fselliotpro/FSElliotPro.css">
     <link rel="stylesheet" href="style/main.css">
@@ -23,7 +26,7 @@
     <symbol id="logo" viewBox="0 0 128 128"><g><path d="M108 0a4 4 0 0 0-4 4v120a4 4 0 0 0 4 4h16a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4h-16Zm15 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm2 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm0 4h-18v3h18v-3Zm-18 4h18v3h-18v-3Zm19 106h-3v2h3v-2Zm-7 0h3v2h-3v-2Zm-1 0h-3v2h3v-2Zm-10 1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm-2-103h6v3h-6v-3Zm16 0h-6v3h6v-3Zm-16 5h6v3h-6v-3Zm16 0h-6v3h6v-3ZM4 0a4 4 0 0 0-4 4v120a4 4 0 0 0 4 4h16a4 4 0 0 0 4-4V4a4 4 0 0 0-4-4H4Zm15 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm2 3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm0 4H3v3h18v-3ZM3 18h18v3H3v-3Zm19 106h-3v2h3v-2Zm-7 0h3v2h-3v-2Zm-1 0h-3v2h3v-2Zm-10 1a1 1 0 1 1-2 0 1 1 0 0 1 2 0Zm2 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2ZM4 23h6v3H4v-3Zm16 0h-6v3h6v-3ZM4 28h6v3H4v-3Zm16 0h-6v3h6v-3Z"/><path d="M26.194 7.71a4 4 0 0 0-1.739 5.383L82.192 125.92a4 4 0 0 0 5.383 1.738l14.244-7.288a4 4 0 0 0 1.738-5.383L45.82 2.16A4 4 0 0 0 40.437.42L26.194 7.71ZM101.804 116l-2.67 1.367.911 1.78 2.67-1.367-.911-1.78Zm-6.231 3.189 2.67-1.367.912 1.781-2.671 1.366-.911-1.78Zm-.89.455-2.671 1.367.911 1.78 2.67-1.366-.91-1.781Zm-8.447 5.446a1 1 0 1 1-1.781.911 1 1 0 0 1 1.781-.911Zm2.236-.021a1 1 0 1 0-.91-1.78 1 1 0 0 0 .91 1.78ZM43.935 4.581a2 2 0 1 1-3.56 1.822 2 2 0 0 1 3.56-1.822Zm1.408 7.142a2 2 0 1 0-1.822-3.56 2 2 0 0 0 1.822 3.56Zm-13.332 9.07 16.024-8.2 1.366 2.67-16.023 8.2-1.367-2.67Zm17.846-4.64-16.024 8.2 1.367 2.67 16.024-8.199-1.367-2.67ZM37.001 28.35l5.341-2.734 1.367 2.671-5.341 2.733L37 28.35Zm14.244-7.289-5.342 2.733 1.367 2.67 5.341-2.732-1.366-2.671ZM39.279 32.8l5.341-2.733 1.367 2.67-5.342 2.733-1.366-2.67Zm14.243-7.289-5.341 2.733 1.367 2.671 5.34-2.733-1.366-2.67Z"/></g></symbol>
 </svg>
 <!--Контейнер сайта. Нужен для нормальной масштабируемости-->
-<div class="site">
+<div class="site" id="site">
     <!--Шапка-->
     <header class="header">
         <a href="https://praktika.neonc.ru" class="logo">
@@ -129,10 +132,22 @@
             <a href="https://praktika.neonc.ru/terms.html" class="nav-item">Юридическая информация</a>
         </div>
     </footer>
+    <div class="up-widget">
+        <a class="button" id="up-button">
+            <i class="bi bi-arrow-up"></i>
+        </a>
+    </div>
+</div>
+<div class="chatbot__btn">
+    <div class="chatbot__tooltip d-none">Есть вопрос?</div>
 </div>
 <!--Библиотеки-->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="js/chief-slider.js"></script>
+<script src="js/fp2.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/toast.min.js"></script>
 
 <script src="js/script.js"></script>
 </body>
