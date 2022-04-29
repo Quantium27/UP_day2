@@ -1,0 +1,12 @@
+@import "mixins";
+
+.page {
+  .err-content {
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: center;
+    h4, h5, p {
+      text-align: center;
+    }
+  }
+}

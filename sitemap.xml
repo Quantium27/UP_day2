@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>https://praktika.neonc.ru/index.html</loc>
+        <lastmod>2022-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://praktika.neonc.ru/pricing.html</loc>
+        <lastmod>2022-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <url>
+        <loc>https://praktika.neonc.ru/about.html</loc>
+        <lastmod>2022-04-29</lastmod>
+        <changefreq>monthly</changefreq>
+    </url>
+    <image:image>
+        <image:loc>https://praktika.neonc.ru/image/banner_bg.jpg</image:loc>
+        <image:caption>Баннер фона</image:caption>
+    </image:image>
+    <image:image>
+        <image:loc>https://praktika.neonc.ru/image/grid.png</image:loc>
+        <image:caption>Ландшафт из неоновой сетки</image:caption>
+    </image:image>
+    <image:image>
+        <image:loc>https://praktika.neonc.ru/image/news1.png</image:loc>
+        <image:caption>Футуристический экран</image:caption>
+    </image:image>
+</urlset>

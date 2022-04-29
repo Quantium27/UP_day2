@@ -1,0 +1,13 @@
+ErrorDocument 404 /error.html
+#.htaccess работает лишь с вебсервером Apache.
+#Так как у меня установлен nginx,
+#Ниже представлен конфиг виртуального хоста praktika.neonc.ru
+#
+#---
+# server {
+#     server_name praktika.neonc.ru;
+#     ...
+#     error_page 404 /error.html;
+#     ...
+# }
+#---

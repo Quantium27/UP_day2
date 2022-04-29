@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /img/admin/
+Disallow: /support/
+Allow: /error.html
+Sitemap: https://praktika.neonc.ru/sitemap.xml
